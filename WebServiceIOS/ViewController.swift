@@ -26,7 +26,6 @@ class ViewController: UIViewController {
         
         if SearchField.text?.isEmpty != nil {
             word = SearchField.text!
-           // print(word)
         }
             
         let urlComplete = "https://en.wikipedia.org/w/api.php?action=query&prop=extracts&format=json&titles=\(word!.replacingOccurrences(of: " ", with: "%20"))"
@@ -41,8 +40,7 @@ class ViewController: UIViewController {
             }else{
                
                 do {
-                    
-                    let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:Any]
+                     let json = try JSONSerialization.jsonObject(with: data!, options: JSONSerialization.ReadingOptions.mutableContainers) as! [String:Any]
                         print(json)
                     
                     let querySubJson = json["query"] as! [String:Any]
